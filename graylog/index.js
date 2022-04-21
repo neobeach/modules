@@ -113,8 +113,8 @@ module.exports = {
      *
      * @param {String} message - Message that will be displayed with the error in graylog.
      * @param {('trace'|'debug'|'info'|'warn'|'error')} severity - Show how big the severity is of the sending message.
-     * @param {String} shortMessage - Short message that can be used as message. When not filled truncate original message. (50 characters max)
-     * @param {Object} payload - Extra payload that can be used to sent extra data.
+     * @param {String} [shortMessage] - Short message that can be used as message. When not filled truncate original message. (50 characters max)
+     * @param {Object} [payload] - Extra payload that can be used to sent extra data.
      *
      * @example
      * const graylog = require('@neobeach/modules-graylog');
