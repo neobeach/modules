@@ -5,43 +5,28 @@ const {Logger} = require('@neobeach/core');
 const Gelf = require('gelf');
 
 /**
+ * Import util
+ */
+const util = require('./utils');
+
+/**
  * Set variables
  */
 const config = {};
 let gelf = {};
 const packageInformation = require(__dirname + '/../package.json');
 
-
-/**
- * @access public
- * @since 0.0.1
- * @author Glenn de Haan
- * @copyright MIT
- *
- * Util to truncate a string
- *
- * @param {String} str
- * @param {Number} num
- * @return {string|*}
- */
-function truncateString(str, num = 50) {
-    if (str.length <= num) {
-        return str;
-    }
-
-    return `${str.slice(0, num)}...`;
-}
-
 module.exports = {
     /**
+     * Initialize the Connection with graylog.
+     *
      * @access public
-     * @since 0.0.1
+     * @since 1.0.0
      * @author Roel Voordendag
      * @copyright MIT
      *
-     * Initialize the Connection with graylog.
-     *
      * @see https://www.npmjs.com/package/gelf
+     * @see https://docs.graylog.org/docs
      *
      * @param {String} graylogHostname - Hostname of dpdk gray log.
      * @param {Number} graylogPort - Port of dpdk's gray log space.
@@ -53,7 +38,7 @@ module.exports = {
      * const graylog = require('@neobeach/modules-graylog');
      *
      * Runtime(() => {
-     *    graylog.init('log.dpdk.com', '12201', 'example-project-name', 'local');
+     *    graylog.init('log.example.com', '12201', 'example-project-name', 'local');
      * });
      */
     init: (graylogHostname, graylogPort, projectName, projectEnv) => {
@@ -107,17 +92,18 @@ module.exports = {
     },
 
     /**
+     * Function to send message to graylog.
+     *
      * @access public
-     * @since 0.0.1
+     * @since 1.0.0
      * @author Roel Voordendag
      * @copyright MIT
      *
-     * Function to send message to graylog.
-     *
      * @see https://www.npmjs.com/package/gelf
+     * @see https://docs.graylog.org/docs
      *
      * @param {String} message - Message that will be displayed with the error in graylog.
-     * @param {("trace", "debug", "info", "warn", "error", "fatal")} severity - Show how big the severity is of the sending message.
+     * @param {("trace", "debug", "info", "warn", "error")} severity - Show how big the severity is of the sending message.
      * @param {String} shortMessage - Short message that can be used as message. When not filled truncate original message. (50 characters max)
      * @param {Object} payload - Extra payload that can be used to sent extra data.
      *
@@ -131,12 +117,21 @@ module.exports = {
      *      payload: {test: 123}
      *  });
      */
-    send: ({message, severity = 'info', shortMessage = message, payload = {}}) => {
+    send: (message, severity = 'info', shortMessage = message, payload = {}) => {
         /**
          * Check if message is correct
          */
         if(typeof message === "undefined" || typeof message !== "string" || message === "") {
             Logger.error("[GRAYLOG] message is not correct.");
+            process.exit(1);
+            return;
+        }
+
+        /**
+         * Check severity type
+         */
+        if(!["trace", "debug", "info", "warn", "error"].includes(severity)){
+            Logger.error("[GRAYLOG] severity is not correct");
             process.exit(1);
             return;
         }
@@ -149,7 +144,7 @@ module.exports = {
         const file = typeof stack[0] !== "undefined" ? stack[0].match(/^.* \((.*):[0-9]+:[0-9]+\)$/) !== null ? stack[0].match(/^.* \((.*):[0-9]+:[0-9]+\)$/)[1] : null : null;
 
         gelf.emit('gelf.log', {
-            short_message: truncateString(shortMessage),
+            short_message: util.truncateString(message),
             full_message: message,
             level: severity,
             project_name: config.projectName,
