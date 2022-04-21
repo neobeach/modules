@@ -1,0 +1,54 @@
+{
+  "source": {
+    "include": ["README.md"],
+    "includePattern": ".js$",
+    "excludePattern": "(node_modules/|docs)"
+  },
+  "plugins": ["plugins/markdown"],
+  "opts": {
+    "encoding": "utf8",
+    "readme": "./README.md",
+    "destination": "docs/",
+    "recurse": true,
+    "verbose": true,
+    "template": "./node_modules/clean-jsdoc-theme",
+    "theme_opts":{
+      "theme": "dark",
+      "title": "Modules",
+      "menu": [
+        {
+          "title": "@neobeach/core - GitHub",
+          "link": "https://github.com/neobeach/core",
+          "target": "_blank"
+        },
+        {
+          "title": "@neobeach/core - NPM",
+          "link": "https://npmjs.com/@neobeach/core",
+          "target": "_blank"
+        },
+        {
+          "title": "Core - Documentation",
+          "link": "https://neobeach.dev/core/"
+        },
+        {
+          "title": "Middlewares - Documentation",
+          "link": "https://neobeach.dev/middlewares/"
+        },
+        {
+          "title": "Modules - Documentation",
+          "link": "https://neobeach.dev/modules/"
+        }
+      ],
+      "meta": [
+        {
+          "name": "author",
+          "content": "Glenn de Haan"
+        },
+        {
+          "name": "description",
+          "content": "A collection of middlewares that can be used in combination with the @neobeach/core package"
+        }
+      ]
+    }
+  }
+}

@@ -1,14 +1,22 @@
 /**
  * Import modules
+ * @ignore
  */
 const {Logger} = require('@neobeach/core');
 const sendGrid = require('@sendgrid/mail');
 
 /**
  * Setting variables
+ * @ignore
  */
 const config = {};
 
+/**
+ * A module to simplify the connection to sendgrid for sending mail
+ *
+ * @module @neobeach/modules-sendgrid
+ * @type {{init: (function(String, String): undefined), send: (function((Array<string>|String), String, String, String, String=, (Array<string>|String)=, (Array<string>|String)=, Array=): *)}}
+ */
 module.exports = {
     /**
      * Initialize the Sendgrid module

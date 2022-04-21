@@ -1,21 +1,30 @@
 /**
  * Import modules
+ * @ignore
  */
 const {Logger} = require('@neobeach/core');
 const Gelf = require('gelf');
 
 /**
  * Import util
+ * @ignore
  */
 const util = require('./utils');
 
 /**
  * Set variables
+ * @ignore
  */
 const config = {};
 let gelf = {};
 const packageInformation = require(__dirname + '/../package.json');
 
+/**
+ * A module to simplify the connection to graylog
+ *
+ * @module @neobeach/modules-graylog
+ * @type {{init: (function(String, Number, String, ("local"|"test"|"staging"|"production")): undefined), send: (function(String, ("trace"|"debug"|"info"|"warn"|"error")=, String=, Object=): undefined)}}
+ */
 module.exports = {
     /**
      * Initialize the Connection with graylog.
@@ -31,7 +40,7 @@ module.exports = {
      * @param {String} graylogHostname - Hostname of graylog server.
      * @param {Number} graylogPort - Port of graylog server.
      * @param {String} projectName - Name of current project working in.
-     * @param {("local", "test", "staging", "production")} projectEnv - From what environment is this message sent from.
+     * @param {('local'|'test'|'staging'|'production')} projectEnv - From what environment is this message sent from.
      *
      * @example
      * const {Runtime, Server} = require('@neobeach/core');
@@ -103,7 +112,7 @@ module.exports = {
      * @see https://docs.graylog.org/docs
      *
      * @param {String} message - Message that will be displayed with the error in graylog.
-     * @param {("trace", "debug", "info", "warn", "error")} severity - Show how big the severity is of the sending message.
+     * @param {('trace'|'debug'|'info'|'warn'|'error')} severity - Show how big the severity is of the sending message.
      * @param {String} shortMessage - Short message that can be used as message. When not filled truncate original message. (50 characters max)
      * @param {Object} payload - Extra payload that can be used to sent extra data.
      *

@@ -1,0 +1,4 @@
+# neobeach/modules
+
+## License
+MIT
