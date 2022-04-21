@@ -29,7 +29,7 @@ module.exports = {
      * @see https://docs.graylog.org/docs
      *
      * @param {String} graylogHostname - Hostname of graylog server.
-     * @param {Number} graylogPort - Port of gray log server.
+     * @param {Number} graylogPort - Port of graylog server.
      * @param {String} projectName - Name of current project working in.
      * @param {("local", "test", "staging", "production")} projectEnv - From what environment is this message sent from.
      *
