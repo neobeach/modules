@@ -28,8 +28,8 @@ module.exports = {
      * @see https://www.npmjs.com/package/gelf
      * @see https://docs.graylog.org/docs
      *
-     * @param {String} graylogHostname - Hostname of dpdk gray log.
-     * @param {Number} graylogPort - Port of dpdk's gray log space.
+     * @param {String} graylogHostname - Hostname of graylog server.
+     * @param {Number} graylogPort - Port of gray log server.
      * @param {String} projectName - Name of current project working in.
      * @param {("local", "test", "staging", "production")} projectEnv - From what environment is this message sent from.
      *
