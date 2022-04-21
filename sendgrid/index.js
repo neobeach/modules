@@ -54,6 +54,8 @@ module.exports = {
         config.apiKey = apiKey;
         config.from = from;
         sendGrid.setApiKey(config.apiKey);
+
+        Logger.info('[SENDGRID] Initialized');
     },
 
     /**
