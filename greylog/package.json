@@ -1,7 +1,7 @@
 {
-  "name": "@neobeach/modules-greylog",
+  "name": "@neobeach/modules-graylog",
   "version": "0.0.1",
-  "description": "A module to simplify sending message to greylog",
+  "description": "A module to simplify sending message to graylog",
   "main": "index.js",
   "author": "Roel Voordendag <rvoordendag@gmail.com>",
   "contributors": [
