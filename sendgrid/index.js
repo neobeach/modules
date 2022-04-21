@@ -85,10 +85,10 @@ module.exports = {
      * @param {String} subject - Subject of the email.
      * @param {String} text - Text of the body of the mail.
      * @param {String} html - Body of email in html.
-     * @param {String} replyTo - Email address where replies to send email will be sent to (default from email).
-     * @param {Array<string>|String} cc - String with email to send to or an array filled with email addresses the email will be sent to.
-     * @param {Array<string>|String} bcc - String with email to send to or an array filled with email addresses the email hidden will be sent to.
-     * @param {Array} attachments - Array filled with needed object attachments information.
+     * @param {String} [replyTo] - Email address where replies to send email will be sent to (default from email).
+     * @param {Array<string>|String} [cc] - String with email to send to or an array filled with email addresses the email will be sent to.
+     * @param {Array<string>|String} [bcc] - String with email to send to or an array filled with email addresses the email hidden will be sent to.
+     * @param {Array} [attachments] - Array filled with needed object attachments information.
      *
      * @return {Promise}
      *

@@ -1,6 +1,6 @@
 {
   "name": "@neobeach/modules-sendgrid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A module to simplify sending emails with Sendgrid.",
   "main": "index.js",
   "author": "Roel Voordendag <rvoordendag@gmail.com>",
