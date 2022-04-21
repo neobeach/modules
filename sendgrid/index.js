@@ -4,6 +4,9 @@
 const {Logger} = require('@neobeach/core');
 const sendGrid = require('@sendgrid/mail');
 
+/**
+ * Setting variables
+ */
 const config = {};
 
 module.exports = {
