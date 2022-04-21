@@ -1,21 +1,22 @@
 /**
  * Import modules
  */
-const sendGrid = require('@sendgrid/mail');
 const {Logger} = require('@neobeach/core');
+const sendGrid = require('@sendgrid/mail');
 
 const config = {};
 
 module.exports = {
     /**
+     * Initialize the Sendgrid module
+     *
      * @access public
-     * @since 0.0.1
+     * @since 1.0.0
      * @author Roel Voordendag
      * @copyright MIT
      *
-     * Initialize the Sendgrid module
-     *
      * @see https://www.npmjs.com/package/@sendgrid/mail
+     * @see https://docs.sendgrid.com/api-reference/mail-send/mail-send
      *
      * @param {String} apiKey - Api key from sendgrid.
      * @param {String} from - Standard from email address that will be used also as standard replyTo.
@@ -59,22 +60,21 @@ module.exports = {
     },
 
     /**
+     * Helper function to send email with Sendgrid.
      *
      * @access public
-     * @since 0.0.1
+     * @since 1.0.0
      * @author Roel Voordendag
      * @copyright MIT
      *
-     * Helper function to send email with Sendgrid.
-     *
      * @see https://www.npmjs.com/package/@sendgrid/mail
+     * @see https://docs.sendgrid.com/api-reference/mail-send/mail-send
      *
      * @param {Array<string>|String} to - String with email to send to or an array filled with email addresses the email will be sent to.
      * @param {String} subject - Subject of the email.
      * @param {String} text - Text of the body of the mail.
      * @param {String} html - Body of email in html.
      * @param {String} replyTo - Email address where replies to send email will be sent to (default from email).
-     * @param {String} from - Address the email will be sent off from standard will be from init() function.
      * @param {Array<string>|String} cc - String with email to send to or an array filled with email addresses the email will be sent to.
      * @param {Array<string>|String} bcc - String with email to send to or an array filled with email addresses the email hidden will be sent to.
      * @param {Array} attachments - Array filled with needed object attachments information.
@@ -95,7 +95,7 @@ module.exports = {
      *    attachments: []
      *  }}
      */
-    send: ({to, subject, text, html, replyTo = config.from, from = config.from, cc = '', bcc = '', attachments = []}) => {
+    send: (to, subject, text, html, replyTo = config.from, cc = '', bcc = '', attachments = []) => {
         /**
          * Check if to is correct
          */
@@ -134,7 +134,7 @@ module.exports = {
 
         return sendGrid.send({
             to: to,
-            from: from,
+            from: config.from,
             replyTo: replyTo,
             subject: subject,
             text: text,
