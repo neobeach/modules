@@ -1,0 +1,22 @@
+{
+  "name": "@neobeach/modules-greylog",
+  "version": "0.0.1",
+  "description": "A module to simplify sending message to greylog",
+  "main": "index.js",
+  "author": "Roel Voordendag <rvoordendag@gmail.com>",
+  "contributors": [
+    "Glenn de Haan <glenn@dehaan.cloud>"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/neobeach/modules.git"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "@neobeach/core": "*",
+    "gelf": "^2.0.1"
+  }
+}
