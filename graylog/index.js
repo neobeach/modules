@@ -119,12 +119,7 @@ module.exports = {
      * @example
      * const graylog = require('@neobeach/modules-graylog');
      *
-     * graylog.send({
-     *      message:'There was an error that happened.',
-     *      shortMessage: 'This is the error',
-     *      severity: 'error',
-     *      payload: {test: 123}
-     *  });
+     * graylog.send('There was an error that happened.', 'This is the error', 'error', {test: 123});
      */
     send: (message, severity = 'info', shortMessage = message, payload = {}) => {
         /**
