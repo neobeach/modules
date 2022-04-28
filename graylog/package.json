@@ -1,6 +1,6 @@
 {
   "name": "@neobeach/modules-graylog",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A module to simplify sending message to graylog",
   "main": "index.js",
   "author": "Roel Voordendag <rvoordendag@gmail.com>",
@@ -12,8 +12,9 @@
     "type": "git",
     "url": "https://github.com/neobeach/modules.git"
   },
+  "sideEffects": false,
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=16.0.0"
   },
   "dependencies": {
     "@neobeach/core": "*",
