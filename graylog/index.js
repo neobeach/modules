@@ -17,7 +17,7 @@ const util = require('./utils');
  */
 const config = {};
 let gelf = {};
-const packageInformation = require(__dirname + '/../package.json');
+const packageInformation = require(__dirname + '/package.json');
 
 /**
  * A module to simplify the connection to graylog
