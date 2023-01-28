@@ -14,10 +14,10 @@
   },
   "sideEffects": false,
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "@neobeach/core": "*",
-    "@sendgrid/mail": "^7.6.2"
+    "@sendgrid/mail": "^7.7.0"
   }
 }
