@@ -21,8 +21,8 @@
     "docs": "jsdoc . --configure jsdoc.json --verbose"
   },
   "devDependencies": {
-    "clean-jsdoc-theme": "^3.3.4",
-    "jsdoc": "^3.6.10",
-    "rimraf": "^3.0.2"
+    "clean-jsdoc-theme": "4.2.3",
+    "jsdoc": "4.0.0",
+    "rimraf": "4.1.2"
   }
 }
