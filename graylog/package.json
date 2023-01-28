@@ -1,6 +1,6 @@
 {
   "name": "@neobeach/modules-graylog",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "A module to simplify sending message to graylog",
   "main": "index.js",
   "author": "Roel Voordendag <rvoordendag@gmail.com>",
@@ -18,6 +18,6 @@
   },
   "dependencies": {
     "@neobeach/core": "*",
-    "gelf": "^2.0.1"
+    "gelf": "2.0.1"
   }
 }
