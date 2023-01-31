@@ -19,6 +19,9 @@
     "theme_opts": {
       "default_theme": "dark",
       "title": "Modules",
+      "homepageTitle": "Modules: Home",
+      "favicon": "_resources/images/logo.png",
+      "static_dir": ["./_resources"],
       "menu": [
         {
           "title": "Core",
